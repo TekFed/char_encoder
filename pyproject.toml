@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "char-encoder"
+version = "0.1.0"
+description = "Convert text to ASCII, binary, hex, and Unicode encodings"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.4"]
+
+[project.scripts]
+char-encoder = "char_encoder.cli:main"
+char-encoder-gui = "char_encoder.gui.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/char_encoder"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
