@@ -71,6 +71,7 @@ reused in scripts, notebooks, or servers.
 Requirements
 
 · Python 3.10+
+
 · Tkinter (bundled with most Python installers; on Linux you may need sudo apt install python3-tk)
 
 From source (development)
@@ -106,9 +107,13 @@ python -m char_encoder
 ```
 
 · Type or paste text into the Input box.
+
 · Press Ctrl+Enter or click Convert.
+
 · Per Character tab → table of code points, decimal, binary, ASCII, names.
+
 · Encoded Bytes tab → hex + binary for every configured encoding.
+
 · Copy Bytes → copies the encoded-bytes view to the clipboard.
 
 CLI
@@ -199,20 +204,14 @@ Data flow
        (Tkinter loop)                     (stdout)
 ```
 
-Why this shape?
-
-Concern Where it lives Why
-Code-point math, encoding attempts core/converter.py Pure, no I/O → trivial to unit-test
-Data containers CharInfo, EncodingResult dataclasses Immutable, self-documenting
-Error handling encode_text() returns a result, never raises GUI and CLI both get safe calls
-Presentation gui/ and cli.py Formatting differs per front-end
-Entry points pyproject.toml [project.scripts] Standard installable commands
-
 Key design choices
 
 · Dataclasses over dicts — typed, frozen, and IDE-friendly (ci.codepoint_hex, not ci["codepoint_hex"]).
+
 · Errors as data, not exceptions — EncodingResult.ok / .error lets both front-ends decide how to display failures (the GUI uses ⚠, the CLI uses a message).
+
 · Padded formatting in the core — codepoint_binary pads to 8/16/32 bits; EncodingResult.hex uppercases and spaces. Presentation stays consistent everywhere.
+
 · One place to add encodings — DEFAULT_ENCODINGS.
 
 ---
@@ -228,10 +227,15 @@ pytest --cov=char_encoder
 The suite covers:
 
 · ASCII characters (A → 65, 0b01000001)
+
 · Non-ASCII characters (你 → no ASCII value → —)
+
 · UTF-8 byte round-trip for Chinese (你好 → E4 BD A0 E5 A5 BD)
+
 · ASCII encoding correctly fails for Chinese
+
 · analyze_text returns one result per encoding
+
 · Unknown encodings don't raise
 
 Sample test:
@@ -249,9 +253,13 @@ def test_utf8_round_trip_for_chinese():
 ## 🗺 Roadmap
 
 ☐ Live conversion while typing (debounced)
+
 ☐ Hexdump-style grid view in the GUI
+
 ☐ Save output as .txt / .csv
+
 ☐ .exe / .app packaging via PyInstaller
+
 ☐ Additional encodings: Big5, Shift-JIS, UTF-32
 
 ---
