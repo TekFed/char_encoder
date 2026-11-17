@@ -61,46 +61,8 @@ reused in scripts, notebooks, or servers.
 
 ## 🎬 Demo
 
-```
+<div align="center"><img src="docs/screenshot.png" width="820" alt="GUI screenshot"/></div>
 
-$ char-encoder "Hey 你好"
-
-Word: Hey 你好
-
-Char  U+        Dec     CodePointBinary     ASCII   Name
-
----
-
-H     U+0048    72      0000000001001000    72      LATIN CAPITAL LETTER H
-e     U+0065    101     0000000001100101    101     LATIN SMALL LETTER E
-y     U+0079    121     0000000001111001    121     LATIN SMALL LETTER Y
-U+0020    32      0000000000100000    32      SPACE
-你    U+4F60    20320   0100111101100000    —       CJK UNIFIED IDEOGRAPH-4F60
-好    U+597D    22909   0101100101111101    —       CJK UNIFIED IDEOGRAPH-597D
-
-── UTF-8 ──
-hex:    48 65 79 20 E4 BD A0 E5 A5 BD
-binary: 01001000 01100101 01111001 00100000 11100100 10111101 10100000 11100101 10100101 10111101
-
-── UTF-16-BE ──
-hex:    00 48 00 65 00 79 00 20 4F 60 59 7D
-binary: 00000000 01001000 00000000 01100101 ...
-
-── GBK ──
-hex:    48 65 79 20 C4 E3 BA C3
-binary: 01001000 01100101 01111001 00100000 11000100 11100011 10111010 11000011
-
-── ASCII ──
-⚠  'ascii' codec can't encode character '\u4f60' in position 4: ordinal not in range(128)
-
-```
-
-> 📸 *GUI screenshot placeholder — drop a `docs/screenshot.png` here once you've
-> captured one:*
->
-> ```markdown
-> <div align="center"><img src="docs/screenshot.png" width="820" alt="GUI screenshot"/></div>
-```
 
 ---
 
@@ -321,15 +283,3 @@ MIT — see LICENSE for details.
 </div>
 
 ---
-
-📌 Notes on customizing
-
-Element What to change
-Banner Replace the Capsule Render URL with your own text/colors, or drop a docs/banner.png and use <img src="docs/banner.png"/>
-Screenshot Add docs/screenshot.png after capturing the GUI, then uncomment the placeholder block
-Badges Swap Python 3.10+, tests, status for live badges: ![tests](https://github.com/<user>/<repo>/actions/workflows/tests.yml/badge.svg) once you add CI
-Repo URL Replace <your-username> in the install section
-LICENSE Add an actual LICENSE file — GitHub will then auto-detect it in the sidebar
-Topics Set under repo → ⚙️ → Topics: python tkinter ascii unicode encoding utf-8 hex binary cli gui
-
-Want me to also add a GitHub Actions CI workflow (tests.yml running pytest on push) or a CONTRIBUTING.md / CODE_OF_CONDUCT.md to round out the repo?
