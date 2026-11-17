@@ -66,7 +66,7 @@ reused in scripts, notebooks, or servers.
 
 ---
 
-🚀 Installation
+## 🚀 Installation
 
 Requirements
 
@@ -95,7 +95,7 @@ char-encoder-gui                   # launch the GUI
 
 ---
 
-🧑‍💻 Usage
+## 🧑‍💻 Usage
 
 GUI
 
@@ -146,7 +146,7 @@ Both the GUI and CLI pick it up automatically. ✅
 
 ---
 
-🏗 Architecture
+## 🏗 Architecture
 
 The rule
 
@@ -217,7 +217,7 @@ Key design choices
 
 ---
 
-🧪 Testing
+## 🧪 Testing
 
 ```bash
 pytest -q                # run all tests
@@ -246,7 +246,7 @@ def test_utf8_round_trip_for_chinese():
 
 ---
 
-🗺 Roadmap
+## 🗺 Roadmap
 
 ☐ Live conversion while typing (debounced)
 ☐ Hexdump-style grid view in the GUI
@@ -256,7 +256,7 @@ def test_utf8_round_trip_for_chinese():
 
 ---
 
-🤝 Contributing
+## 🤝 Contributing
 
 1. Fork the repo and create a branch: git checkout -b feat/my-feature
 2. Install dev deps: pip install -e ".[dev]"
@@ -268,7 +268,7 @@ Please keep core/ free of GUI imports — that's the one architectural rule.
 
 ---
 
-📄 License
+## 📄 License
 
 MIT — see LICENSE for details.
 
